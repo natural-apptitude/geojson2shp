@@ -1,19 +1,37 @@
 {
-  "name": "geojson2shp",
-  "version": "0.4.0",
-  "description": "Convert GeoJSON into Shapefile in pure JavaScript",
+  "name": "@natural-apptitude/geojson2shp",
+  "version": "0.5.0",
+  "description": "Convert GeoJSON into Shapefile in pure JavaScript (Natural Apptitude fork)",
   "main": "index.js",
-  "repository": "https://github.com/jdesboeufs/geojson2shp",
-  "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
-  "license": "MIT",
-  "private": false,
-  "bin": "cli.js",
-  "scripts": {
-    "lint": "xo",
-    "test": "ava"
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "homepage": "https://github.com/jdesboeufs/geojson2shp#readme",
-  "bugs": "https://github.com/jdesboeufs/geojson2shp/issues",
+  "bin": "cli.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natural-apptitude/geojson2shp.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/natural-apptitude"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "cli.js",
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "ava",
+    "prepublishOnly": "npm test"
+  },
+  "license": "MIT",
   "dependencies": {
     "epsg-index": "^1.1.0",
     "geojson-stream": "^0.1.0",
@@ -25,19 +43,11 @@
     "yazl": "^2.5.1"
   },
   "devDependencies": {
-    "ava": "^3.15.0",
-    "dev-null": "^0.1.1",
-    "xo": "^0.38.2"
-  },
-  "xo": {
-    "semicolon": false,
-    "space": 2,
-    "rules": {
-      "unicorn/no-abusive-eslint-disable": "warn",
-      "unicorn/no-array-for-each": "off"
-    }
+    "@types/geojson": "^7946.0.16",
+    "ava": "^6",
+    "dev-null": "^0.1.1"
   },
   "engines": {
-    "node": ">= 8"
+    "node": ">=20"
   }
 }
